@@ -1,0 +1,20 @@
+<div id="portfolio" class="container-fluid text-center bg-grey">
+  <div>
+    <h2>{{chienChasse.nom}}</h2><br>
+    <h4>{{chienChasse.description}}</h4>
+    <div class="row text-center slideanim">
+      <div class="col-sm-4">
+        <div class="thumbnail">
+            <img src="{{chienChasse.photo}}" alt="Paris" width="400" height="300">
+            <p><strong>Paris</strong></p>
+            <p>Yes, we built Paris</p>
+        </div>
+      </div>
+    </div>
+
+  <button class="btn-warning" (click)="update([chienChasse._id])">update</button>
+  <br>
+  <br>
+  <button class="btn btn-warning" (click)="delete([chienChasse._id])">delete</button>
+  </div>
+</div><br>
