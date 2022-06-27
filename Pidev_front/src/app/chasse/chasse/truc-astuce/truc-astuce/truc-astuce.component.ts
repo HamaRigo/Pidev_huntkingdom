@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ServiceTrucAstuceService} from "../service/service-truc-astuce.service";
 
 @Component({
   selector: 'app-truc-astuce',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./truc-astuce.component.css']
 })
 export class TrucAstuceComponent implements OnInit {
-
-  constructor() { }
+ trucAstuce:any
+  constructor( private serviceTrucAstuce:ServiceTrucAstuceService) { }
 
   ngOnInit(): void {
+   this.serviceTrucAstuce.getTrucAstuce().subscribe((data)=>{
+     this.trucAstuce=data
+   })
   }
 
 }

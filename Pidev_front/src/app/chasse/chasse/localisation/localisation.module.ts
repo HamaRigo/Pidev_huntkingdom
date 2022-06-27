@@ -6,11 +6,17 @@ import { LocalisationComponent } from './localisation/localisation.component';
 import {ChienChasseRoutingModule} from "../chien-chasse/chien-chasse-routing.module";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { AddLocalisationComponent } from './add-localisation/add-localisation.component';
+import { UpdateLocalisationComponent } from './update-localisation/update-localisation.component';
+import { DetailLocalisationComponent } from './detail-localisation/detail-localisation.component';
 
 
 @NgModule({
   declarations: [
-    LocalisationComponent
+    LocalisationComponent,
+    AddLocalisationComponent,
+    UpdateLocalisationComponent,
+    DetailLocalisationComponent
   ],
   imports: [
     CommonModule,

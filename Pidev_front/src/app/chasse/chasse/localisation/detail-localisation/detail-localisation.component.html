@@ -1,0 +1,20 @@
+
+<div id="portfolio" class="container-fluid text-center bg-grey">
+  <div >
+    <h2>{{localisation.nom}}</h2><br>
+    <h4>{{localisation.description}}</h4>
+    <div class="row text-center slideanim">
+      <div class="col-sm-4">
+        <div class="thumbnail">
+            <p><strong>Localisation</strong></p>
+            <p>Localisation</p>
+
+        </div>
+      </div>
+    </div>
+    <button class="btn-warning" (click)="update([localisation._id])">update</button>
+    <br>
+    <br>
+    <button class="btn btn-warning" (click)="delete([localisation._id])">delete</button>
+  </div>
+</div><br>

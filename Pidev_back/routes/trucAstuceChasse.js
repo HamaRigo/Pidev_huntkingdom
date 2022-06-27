@@ -21,7 +21,7 @@ router.get('/:id', getTrucAstuceChasse, (req, res) => {
 
 // Creating one
 router.post('/', async (req, res) => {
-    var trucAstuceChasse = new trucAstuceChasse({
+    var trucAstuceChasse = new TrucAstuceChasse({
         title:req.body.title,
         description:req.body.description,
         photo:req.body.photo

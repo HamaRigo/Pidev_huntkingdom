@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ServiceLocalisationService} from "../service/service-localisation.service";
 
 @Component({
   selector: 'app-localisation',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./localisation.component.css']
 })
 export class LocalisationComponent implements OnInit {
-
-  constructor() { }
+localisation:any
+  constructor(private serviceLocalisation:ServiceLocalisationService) { }
 
   ngOnInit(): void {
+  this.serviceLocalisation.getLocalisation().subscribe((data)=>{
+    this.localisation=data
+  })
   }
 
 }

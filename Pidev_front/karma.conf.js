@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/Pidevfront'),
+      dir: require('path').join(__dirname, './coverage/PIDEV'),
       subdir: '.',
       reporters: [
         { type: 'html' },
