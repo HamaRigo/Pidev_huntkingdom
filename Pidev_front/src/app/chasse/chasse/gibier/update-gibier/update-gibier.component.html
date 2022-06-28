@@ -1,0 +1,26 @@
+<div class="container">
+
+  <form #f="ngForm"  (ngSubmit)="updateGibier(f)">
+    <div class="form-group">
+      <label >Nom Gibier:</label>
+      <input type="text" class="form-control" placeholder="{{gibier.nom}}" required name="nom" #nom="ngModel" ngModel >
+    </div>
+
+    <!-- lastName validation start here -->
+    <div class="form-group">
+      <label >Description</label>
+      <input type="text" class="form-control" placeholder="{{gibier.description}}" required name="description" #description="ngModel"  ngModel>
+    </div>
+    <!-- lastName validation end here -->
+
+    <!-- Email validation start here -->
+
+    <div class="form-group">
+      <label >Photo</label>
+      <input type="text" class="form-control" placeholder="{{gibier.photo}}" required name="photo" #photo="ngModel"  ngModel>
+    </div>
+    <button class="btn btn-primary" >update Gibier</button>
+  </form>
+
+
+</div>

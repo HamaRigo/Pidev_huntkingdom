@@ -1,1 +1,23 @@
-<p>gibier works!</p>
+
+<div class="jumbotron text-center">
+  <a routerLink="/chasse/gibier/addGibier"> ajouter un nouveau gibier</a>
+
+</div>
+
+<div id="portfolio" class="container-fluid text-center bg-grey">
+  <div *ngFor="let gibier of gibier">
+    <h2>{{gibier.nom}}</h2><br>
+    <h4>{{gibier.description}}</h4>
+    <div class="row text-center slideanim">
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <a routerLink="/chasse/gibier/detailGibier/{{gibier._id}}">
+            <img src="{{gibier.photo}}" alt="Paris" width="400" height="300">
+            <p><strong>Gibier</strong></p>
+            <p>Gibier</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><br>
