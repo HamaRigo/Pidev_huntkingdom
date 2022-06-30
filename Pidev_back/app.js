@@ -8,8 +8,14 @@ mongoose.connect('mongodb://localhost:27017/PIDEV_API_db',()=>{
     console.log('connected to database')
 })
 
-
 var usersRouter = require('./routes/users');
+var indexRouter = require('./routes/index');
+var blogueRouter = require('./routes/blogues');
+var chienChasseRouter = require('./routes/chienChasse');
+var commentaireRouter = require('./routes/commentaire');
+var especeChasseRouter = require('./routes/especeChasse');
+var localisationChasseRouter = require('./routes/localisationChasse');
+var trucAstuceChasseRouter = require('./routes/trucAstuceChasse');
 
 var app = express();
 
@@ -22,5 +28,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors())
 
 app.use('/users', usersRouter);
+app.use('/', indexRouter);
+app.use('/blogues',blogueRouter)
+app.use('/chienChasse',chienChasseRouter)
+app.use('/commentaire',commentaireRouter)
+app.use('/especeChasse',especeChasseRouter)
+app.use('/localisationChasse',localisationChasseRouter)
+app.use('/trucAstuceChasse',trucAstuceChasseRouter)
 
 module.exports = app;

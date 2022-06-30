@@ -1,0 +1,26 @@
+<div class="container">
+
+  <form #f="ngForm"  (ngSubmit)="addChien(f)">
+    <div class="form-group">
+      <label >Nom Chien:</label>
+      <input type="text" class="form-control" placeholder="nom chien" required name="nom" #nom="ngModel" ngModel >
+    </div>
+
+    <!-- lastName validation start here -->
+    <div class="form-group">
+      <label >Description</label>
+      <input type="text" class="form-control" placeholder="Description" required name="description" #description="ngModel"  ngModel>
+    </div>
+    <!-- lastName validation end here -->
+
+    <!-- Email validation start here -->
+
+    <div class="form-group">
+      <label >Photo</label>
+      <input type="text" class="form-control" placeholder="Photo" required name="photo" #photo="ngModel"  ngModel>
+    </div>
+    <button class="btn btn-primary" >Add chien</button>
+  </form>
+
+
+</div>

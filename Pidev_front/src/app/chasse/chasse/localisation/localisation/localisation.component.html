@@ -1,0 +1,23 @@
+<div class="jumbotron text-center">
+  <a routerLink="/chasse/localisation/addLocalisation"> ajouter une nouvelle localisation</a>
+
+</div>
+
+<div id="portfolio" class="container-fluid text-center bg-grey">
+  <div *ngFor="let localisation of localisation">
+    <h2>{{localisation.nom}}</h2><br>
+    <h4>{{localisation.description}}</h4>
+
+    <div class="row text-center slideanim">
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <a routerLink="/chasse/localisation/detailLocalisation/{{localisation._id}}">
+            <p><strong>Localisation</strong></p>
+            <p>Localisation</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><br>
+

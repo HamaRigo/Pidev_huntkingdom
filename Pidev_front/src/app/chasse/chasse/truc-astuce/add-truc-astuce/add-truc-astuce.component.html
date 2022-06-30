@@ -1,0 +1,26 @@
+<div class="container">
+
+  <form #f="ngForm"  (ngSubmit)="addTrucAstuce(f)">
+    <div class="form-group">
+      <label >title:</label>
+      <input type="text" class="form-control" placeholder="title" required name="title" #title="ngModel" ngModel >
+    </div>
+
+    <!-- lastName validation start here -->
+    <div class="form-group">
+      <label >Description</label>
+      <input type="text" class="form-control" placeholder="Description" required name="description" #description="ngModel"  ngModel>
+    </div>
+    <!-- lastName validation end here -->
+
+    <!-- Email validation start here -->
+
+    <div class="form-group">
+      <label >Photo</label>
+      <input type="text" class="form-control" placeholder="Photo" required name="photo" #photo="ngModel"  ngModel>
+    </div>
+    <button class="btn btn-primary" >Add Truc&Astuce</button>
+  </form>
+
+
+</div>

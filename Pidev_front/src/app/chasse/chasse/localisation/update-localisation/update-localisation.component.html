@@ -1,0 +1,36 @@
+<div class="container">
+
+  <form #f="ngForm"  (ngSubmit)="updateLocalisation(f)">
+    <div class="form-group">
+      <label >Langitude:</label>
+      <input type="text" class="form-control" placeholder="{{localisation.longitude}}" required name="longitude" #longitude="ngModel" ngModel >
+    </div>
+
+    <!-- lastName validation start here -->
+    <div class="form-group">
+      <label >Latitude:</label>
+      <input type="text" class="form-control" placeholder="{{localisation.latitude}}" required name="latitude" #latitude="ngModel"  ngModel>
+    </div>
+    <!-- lastName validation end here -->
+
+    <!-- Email validation start here -->
+
+    <div class="form-group">
+      <label >Nom:</label>
+      <input type="text" class="form-control" placeholder="{{localisation.nom}}" required name="nom" #nom="ngModel"  ngModel>
+    </div>
+    <div class="form-group">
+      <label >Description</label>
+      <input type="text" class="form-control" placeholder="{{localisation.description}}" required name="description" #description="ngModel"  ngModel>
+    </div>
+    <!--    <div class="form-group">-->
+    <!--      <label >Especs</label>-->
+    <!--      <input type="text" class="form-control" placeholder="especes" required name="especes" #especes="ngModel"  ngModel>-->
+    <!--    </div>-->
+
+    <button class="btn btn-primary" >update Localisation</button>
+  </form>
+
+
+</div>
+
