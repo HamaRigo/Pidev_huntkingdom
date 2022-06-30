@@ -8,7 +8,7 @@ mongoose.connect('mongodb://localhost:27017/PIDEV_API_db',()=>{
     console.log('connected to database')
 })
 
-
+var usersRouter = require('./routes/users');
 var indexRouter = require('./routes/index');
 var blogueRouter = require('./routes/blogues');
 var chienChasseRouter = require('./routes/chienChasse');
@@ -27,6 +27,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors())
 
+app.use('/users', usersRouter);
 app.use('/', indexRouter);
 app.use('/blogues',blogueRouter)
 app.use('/chienChasse',chienChasseRouter)
