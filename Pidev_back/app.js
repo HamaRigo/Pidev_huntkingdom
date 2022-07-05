@@ -2,14 +2,15 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var cors=require('cors');
+var cors = require('cors');
 var mongoose=require('mongoose')
 mongoose.connect('mongodb://localhost:27017/PIDEV_API_db',()=>{
     console.log('connected to database')
 })
 
 var usersRouter = require('./routes/users');
-var indexRouter = require('./routes/index');
+var authRoute = require('./routes/auth.route');
+var profileRoute = require('./routes/profile.route');
 var blogueRouter = require('./routes/blogues');
 var chienChasseRouter = require('./routes/chienChasse');
 var commentaireRouter = require('./routes/commentaire');
@@ -25,10 +26,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(cors())
+app.use(cors({
+    credentials:true,
+    origin:["http://localhost:4200/"]
+}))
 
 app.use('/users', usersRouter);
-app.use('/', indexRouter);
+app.use('/auth',authRoute);
+app.use('/profile',profileRoute);
 app.use('/blogues',blogueRouter)
 app.use('/chienChasse',chienChasseRouter)
 app.use('/commentaire',commentaireRouter)

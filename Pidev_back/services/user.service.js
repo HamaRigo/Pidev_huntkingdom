@@ -1,8 +1,11 @@
-const jwt = require('jsonwebtoken');
+// const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const User = require("../Models/user");
+const Role = require("../Models/role");
+// const {signedCookie} = require("cookie-parser");
+
 module.exports = {
-    authenticate,
+    // authenticate,
     getAll,
     getById,
     create,
@@ -10,19 +13,29 @@ module.exports = {
     delete: _delete
 };
 
-async function authenticate({ username, password }) {
-    const user = await User.findOne({ username });
-    if (user && bcrypt.compareSync(password, user.hash)) {
-        const token = jwt.sign({ sub: user.id }, "secret", { expiresIn: '7d' });
-        return {
-            ...user.toJSON(),
-            token
-        };
-    }
-}
+// async function authenticate({ username , password }) {
+//     const user = await User.findOne({ username });
+//     if (user && bcrypt.compareSync(password, user.hash)) {
+//
+//         const token = jwt.sign({ sub: user.id }, "rigo",);
+//         // return {...user.toJSON() };
+//
+//      res =   signedcookie(jwt,token,{
+//             httpOnly:true,
+//             maxAge:120*1000})
+//
+//         return {...user.toJSON() };
+//     }
+// }
 
-async function getAll() {
-    return await User.find();
+async function getAll(req) {
+    // const user = new User(userParam);
+    const {page = 1, limit = 10} = req.query
+    return   await User.find()
+        .sort('name')
+        .limit(limit * 1)
+        .skip((page -1)* limit).exec();
+    // return await User.find();
 }
 
 async function getById(id) {
@@ -33,6 +46,9 @@ async function create(userParam) {
     // validate
     if (await User.findOne({ username: userParam.username })) {
         throw 'Username "' + userParam.username + '" is already taken';
+    }
+    if (await User.findOne({ email: userParam.email })) {
+        throw 'email "' + userParam.email + '" is already taken';
     }
 
     const user = new User(userParam);
@@ -70,3 +86,6 @@ async function update(id, userParam) {
 async function _delete(id) {
     await User.findByIdAndRemove(id);
 }
+
+
+
