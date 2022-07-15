@@ -7,7 +7,7 @@ const User = require("../Models/user");
 const Role = require("../Models/role");
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-const {authPage} = require("../helpers/middleware");
+const {authPage} = require("../_helpers/middleware");
 
 // router.post('/authenticate', authenticate);
 // router.post('/login', async (req, res) => {
