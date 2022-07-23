@@ -68,7 +68,7 @@ exports.login=async (req,res)=>{
 			if(bcrypt.compareSync(req.body.password, userData.password)){
 
 				let jwt_secret=process.env.JWT_SECRET||"mysecret";
-				let re_jwt_secret=process.env.JWT_SECRET||"qwerty";
+				let re_jwt_secret=process.env.JWT_SECRET||"mysecret";
 				let token=jwt.sign({
 					data: userData
 				}, jwt_secret,{ expiresIn: '12h' });

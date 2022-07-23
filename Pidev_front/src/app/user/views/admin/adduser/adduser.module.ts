@@ -4,11 +4,14 @@ import { CommonModule } from '@angular/common';
 import { AdduserRoutingModule } from './adduser-routing.module';
 
 
+
 @NgModule({
-  declarations: [],
+  declarations: [
+  ],
   imports: [
     CommonModule,
-    AdduserRoutingModule
+    AdduserRoutingModule,
   ]
 })
+
 export class AdduserModule { }

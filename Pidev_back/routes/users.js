@@ -38,13 +38,13 @@ const {authPage} = require("../helpers/middleware");
 //   })
 // })
 // router.post('/register', register);
-
-router.get('/', authPage(["62bf9a8b80ef98715c71ae1f"]), getAll);
-router.get('/current',authPage(["62bf9a8b80ef98715c71ae1f"]), getCurrent);
-router.get('/:id',authPage(["62bf9a8b80ef98715c71ae1f"]), getById);
-router.put('/:id',authPage(["62bf9a8b80ef98715c71ae1f"]), update);
-router.delete('/:id',authPage(["62bf9a8b80ef98715c71ae1f"]), _delete);
-router.post('/recherche_or', authPage(["62bf9a8b80ef98715c71ae1f"]),function(req, res, next) {
+// authPage(["62bf9a8b80ef98715c71ae1f"]),
+router.get('',  getAll);
+router.get('/current', getCurrent);
+router.get(getById);
+router.put('/:id', update);
+router.delete('/:id', _delete);
+router.post('/recherche_or',function(req, res, next) {
   var username= req.body.username;
   var email= req.body.email
    var myquery = { $or :[{username:username} , {email:email}] };
@@ -56,7 +56,7 @@ router.post('/recherche_or', authPage(["62bf9a8b80ef98715c71ae1f"]),function(req
    )
 
 });
-router.post('/recherche_and', authPage(["62bf9a8b80ef98715c71ae1f"]),function(req, res, next) {
+router.post('/recherche_and',function(req, res, next) {
   var username= req.body.username;
   var email= req.body.email
     var myquery = { $and :[{username:username , email:email}] };
@@ -93,9 +93,12 @@ module.exports = router;
 // }
 
 function getAll(req, res, next) {
-  userService.getAll(req)
+
+    userService.getAll(req)
+
       .then(users => res.json(users))
       .catch(err => next(err));
+
 }
 
 function getCurrent(req, res, next) {

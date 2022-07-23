@@ -1,1 +1,19 @@
 <p>detailuser works!</p>
+<div class="container">
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+  <div class="w3-container" id="contact" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>User details</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <ul *ngIf="datauser">
+      <li>{{datauser.firstname}}</li>
+      <li>{{datauser.lastname}}</li>
+
+      <li>{{datauser.email}}</li>
+    </ul>
+
+    <div class="alert alert-danger" *ngIf="!datauser" >We don't have this user in our database</div>
+
+  </div>
+</div>
+
+</div>
